@@ -1,0 +1,18 @@
+[package]
+name = "actix_starter"
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-web = { version = "3.3.2"}
+serde = { version = "1.0.130", features = ["derive"]}
+serde_json = { version = "1.0.68", features = ["preserve_order"] }
+chrono = { version = "0.4.19", features = ["serde"] }
+dotenv = "0.15.0"
+tracing = "0.1.26"
+tracing-subscriber = "0.2.20"
+derive_more = {version = "0.99.0"}
+thiserror = "1.0.28"
+validator = { version = "0.14.0", features = ["derive"] }
