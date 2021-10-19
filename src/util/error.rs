@@ -1,9 +1,11 @@
-use actix_web::{dev::HttpResponseBuilder, error::ResponseError, http::StatusCode, HttpResponse};
+use actix_web::{HttpResponseBuilder, error::ResponseError, http::StatusCode, HttpResponse};
 use serde::Serialize;
 use serde_json::json;
 use std::{collections::HashMap, io, num};
 use thiserror::Error;
 use validator::ValidationErrors;
+
+use crate::repository::DBError;
 
 #[derive(Debug, Error)]
 #[error("{}", .0)]
@@ -11,6 +13,7 @@ pub enum APIError {
     IO(#[from] io::Error),
     ParseInt(#[from] num::ParseIntError),
     Validate(#[from] ValidationErrors),
+    DB(#[from] DBError),
     Custom(String),
 }
 
